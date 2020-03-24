@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { InfoPagina } from '../interfaces/info-pagina.interface';
+import { IntegranteEquipo } from '../interfaces/integrante-equipo.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,15 @@ export class InfoPaginaService {
   info: InfoPagina = {};
   cargada = false;
 
-  constructor(private http: HttpClient) {
-    // console.log('Servicio de info pagina listo');
+  equipo: IntegranteEquipo[] = [];
+  equipoCargado = false;
 
+  constructor(private http: HttpClient) {
+    this.cargarInfo();
+    this.cargarEquipo();
+  }
+
+  private cargarInfo(){
     // Leer el archivo JSON
     this.http.get('assets/data/data-pagina.json').subscribe( (res: InfoPagina) => {
 
@@ -20,6 +27,14 @@ export class InfoPaginaService {
       this.info = res;
       console.log(res);
 
+    });
+  }
+
+  private cargarEquipo(){
+    this.http.get('assets/data/equipo.json').subscribe( (res: IntegranteEquipo[]) => {
+      this.equipoCargado = true;
+      this.equipo = res;
+      console.log(res);
     });
   }
 }
