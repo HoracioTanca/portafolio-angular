@@ -1969,20 +1969,26 @@ body {
 .rk-menu__item {
   color: #202020;
   display: inherit;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: 1px 5px;
+  margin-bottom: 4.2rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 .rk-menu__item:first-child {
-  padding-left: 0;
+  margin-left: 0;
 }
 .rk-menu__item:last-child {
-  padding-right: 0;
+  margin-right: 0;
 }
 .rk-menu__item.active {
-  color: #a0a0a0;
+  /* color: #a0a0a0; */
+  padding: 1px 5px;
+  margin-bottom: 4.2rem;
+  border: solid 1px black;
+  transition: 0.3s;
 }
 .rk-menu__link {
-  padding-bottom: 4.2rem;
+  /*margin-bottom: 4.2rem;*/ 
 }
 .rk-menu__sub {
   background-color: white;

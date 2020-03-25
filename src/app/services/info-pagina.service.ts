@@ -22,19 +22,17 @@ export class InfoPaginaService {
   private cargarInfo(){
     // Leer el archivo JSON
     this.http.get('assets/data/data-pagina.json').subscribe( (res: InfoPagina) => {
-
       this.cargada = true;
       this.info = res;
-      console.log(res);
-
+      // console.log(res);
     });
   }
 
   private cargarEquipo(){
     this.http.get('assets/data/equipo.json').subscribe( (res: IntegranteEquipo[]) => {
-      this.equipoCargado = true;
       this.equipo = res;
-      console.log(res);
+      this.equipoCargado = true;
+      // console.log(res);
     });
   }
 }
