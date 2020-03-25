@@ -1,50 +1,51 @@
 <header class="ae-container-fluid ae-container-fluid--full rk-header ">
-    <input type="checkbox" id="mobile-menu" class="rk-mobile-menu">
-    <label for="mobile-menu">
-      <svg>
-        <use xlink:href="assets/img/symbols.svg#bar"></use>
-      </svg>
-      <svg>
-        <use xlink:href="assets/img/symbols.svg#bar"></use>
-      </svg>
-      <svg>
-        <use xlink:href="assets/img/symbols.svg#bar"></use>
-      </svg>
-    </label>
-    <div class="animated fadeInDown ae-container-fluid rk-topbar">
-      <h1 class="rk-logo">
-        <a routerLink="home">{{ infoService.info.titulo }}<sup>Lion's</sup></a>
-      </h1>
-      <nav class="rk-navigation">
-        <ul class="rk-menu">
-          <!-- 
-          <li class="rk-menu__item">
-            <a href="blog.html" class="rk-menu__link">Blog</a>
-          </li>
-          <li class="rk-menu__item"><a href="#0" class="rk-menu__link">Pages</a>
-            <nav class="rk-menu__sub">
-              <ul class="rk-container">
-                <li class="rk-menu__item"><a href="about.html" class="rk-menu__link">About</a></li>
-                <li class="rk-menu__item"><a href="documentation.html" class="rk-menu__link">Documentation</a></li>
-                <li class="rk-menu__item"><a href="design-styles.html" class="rk-menu__link">Design Styles</a></li>
-              </ul>
-            </nav>
-          </li>
-          -->
-          <li routerLinkActive="active" class="rk-menu__item">
-            <a routerLink="home" class="rk-menu__link">Inicio</a>
-          </li>
-          <li routerLinkActive="active" class="rk-menu__item"><a routerLink="about" class="rk-menu__link">Nosotros</a>
-          </li>
-        </ul>
-        <form class="rk-search">
-          <input type="text" placeholder="Search" id="urku-search" class="rk-search-field">
-          <label for="urku-search">
-            <svg>
-              <use xlink:href="assets/img/symbols.svg#icon-search"></use>
-            </svg>
-          </label>
-        </form>
-      </nav>
-    </div>
-  </header>
+  <input type="checkbox" id="mobile-menu" class="rk-mobile-menu">
+  <label for="mobile-menu">
+    <svg>
+      <use xlink:href="assets/img/symbols.svg#bar"></use>
+    </svg>
+    <svg>
+      <use xlink:href="assets/img/symbols.svg#bar"></use>
+    </svg>
+    <svg>
+      <use xlink:href="assets/img/symbols.svg#bar"></use>
+    </svg>
+  </label>
+  <div class="animated fadeInDown ae-container-fluid rk-topbar">
+    <h1 class="rk-logo">
+      <a routerLink="home">{{ infoService.info.titulo }}<sup>Lion's</sup></a>
+    </h1>
+    <nav class="rk-navigation">
+      <ul class="rk-menu">
+        <!-- 
+        <li class="rk-menu__item">
+          <a href="blog.html" class="rk-menu__link">Blog</a>
+        </li>
+        <li class="rk-menu__item"><a href="#0" class="rk-menu__link">Pages</a>
+          <nav class="rk-menu__sub">
+            <ul class="rk-container">
+              <li class="rk-menu__item"><a href="about.html" class="rk-menu__link">About</a></li>
+              <li class="rk-menu__item"><a href="documentation.html" class="rk-menu__link">Documentation</a></li>
+              <li class="rk-menu__item"><a href="design-styles.html" class="rk-menu__link">Design Styles</a></li>
+            </ul>
+          </nav>
+        </li>
+        -->
+        <li routerLinkActive="active" class="rk-menu__item">
+          <a routerLink="home" class="rk-menu__link">Inicio</a>
+        </li>
+        <li routerLinkActive="active" class="rk-menu__item">
+          <a routerLink="about" class="rk-menu__link">Nosotros</a>
+        </li>
+      </ul>
+      <div class="rk-search">
+        <input #txtBuscar (keyup.enter)="buscarProducto(txtBuscar.value)" type="text" placeholder="Buscar..." id="urku-search" class="rk-search-field" >
+        <label for="urku-search">
+          <svg>
+            <use xlink:href="assets/img/symbols.svg#icon-search"></use>
+          </svg>
+        </label>
+      </div>
+    </nav>
+  </div>
+</header>
