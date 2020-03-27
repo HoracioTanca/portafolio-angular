@@ -1,4 +1,4 @@
-<div class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4">
+<div *ngIf="productosService.productosFiltrado.length > 0" class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4">
     <a *ngFor="let producto of productosService.productosFiltrado" [routerLink]="['/item', producto.cod]" class="animated zoomIn rk-item ae-masonry__item">
         <img src="assets/productos/{{producto.url}}.jpg" alt="">
         <div class="item-meta">
@@ -6,4 +6,10 @@
             <p>{{producto.categoria}}</p>
         </div>
     </a>
+</div>
+
+<div *ngIf="productosService.productosFiltrado.length == 0" class="ae-masonry ae-masonry-md-2" style="display: contents;">
+    <div class="animate heartBeat" style="width: 100%; padding: 10% 0 10% 0;">
+        <h1 style="text-align: center; width: 100%!important;">No se encontraron productos con ese nombre</h1>
+    </div>
 </div>

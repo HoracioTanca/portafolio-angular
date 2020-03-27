@@ -11,15 +11,15 @@ export class ProductosService {
   productos: Producto[] = [];
   productosFiltrado: Producto[] = [];
 
-  constructor( private http: HttpClient ) {
+  constructor(private http: HttpClient) {
     this.cargarProductos();
   }
 
-  private cargarProductos(){
+  private cargarProductos() {
 
-    return new Promise( ( resolve, reject ) => {
+    return new Promise((resolve, reject) => {
 
-      this.http.get('https://angular-portfolio-eb7da.firebaseio.com/productos_idx.json').subscribe( (res: Producto[]) => {
+      this.http.get('https://angular-portfolio-eb7da.firebaseio.com/productos_idx.json').subscribe((res: Producto[]) => {
         console.log(res);
         this.productos = res;
         this.cargando = false;
@@ -29,15 +29,15 @@ export class ProductosService {
     });
   }
 
-  getProducto(id: string){
+  getProducto(id: string) {
     return this.http.get(`https://angular-portfolio-eb7da.firebaseio.com/productos/${id}.json`);
   }
 
   buscarProductosPorTexto(texto: string) {
 
-    if(this.productos.length === 0) {
+    if (this.productos.length === 0) {
       // Esperar a que esten cargados los productos
-      this.cargarProductos().then( () => {
+      this.cargarProductos().then(() => {
         // Esto se va a ejecutar DESPUES(then) de tener los productos
         // Aplicamos filtro:
         this.filtrarProductos(texto);
@@ -49,20 +49,16 @@ export class ProductosService {
 
   }
 
-  private filtrarProductos( texto: string ){
+  private filtrarProductos(texto: string) {
     // console.log(this.productos);
     this.productosFiltrado = [];
-
     texto = texto.toLocaleLowerCase();
 
-    this.productos.forEach( prod => {
-
+    this.productos.forEach(prod => {
       const tituloLower = prod.titulo.toLocaleLowerCase();
-
-      if (prod.categoria.indexOf(texto) >= 0 || tituloLower.indexOf(texto) >= 0 ) {
+      if (prod.categoria.indexOf(texto) >= 0 || tituloLower.indexOf(texto) >= 0) {
         this.productosFiltrado.push(prod);
       }
-
     });
   }
 }

@@ -24,13 +24,14 @@
         <P>Espere por favor</P>
       </div>
       
-      <div class="animated fadeIn ae-grid__item item-lg-4 ae-kappa au-mb-3" *ngFor="let integrante of infoService.equipo">
-        <img src="{{ integrante.url }}" alt="" class="au-mb-3">
-        <h5 class="ae-u-bolder au-mt-2">{{ integrante.nombre }}</h5>
-        <p class="ae-u-bolder au-mb-3">{{ integrante.subtitulo }}</p>
-        <p class="au-lg-ta-left au-mb-3 au-pl-4 au-pr-4">{{ integrante.frase }}</p>
-        <a target="_blank" href="https://twitter.com/{{ integrante.twitter }}" class="ae-u-bolder au-underline">{{ integrante.twitter }}</a>
+      <div class="animated fadeIn ae-grid__item item-lg-4 ae-kappa au-mb-3" *ngFor="let integrante of infoService.equipo" style="margin: 0!important; width: 100%;">
+        <img *ngIf="infoService.equipoCargado" src="{{ integrante.url }}" alt="" class="au-mb-3">
+        <h5 *ngIf="infoService.equipoCargado" class="ae-u-bolder au-mt-2">{{ integrante.nombre }}</h5>
+        <p *ngIf="infoService.equipoCargado" class="ae-u-bolder au-mb-3">{{ integrante.subtitulo }}</p>
+        <p *ngIf="infoService.equipoCargado" class="au-lg-ta-left au-mb-3 au-pl-4 au-pr-4">{{ integrante.frase }}</p>
+        <a *ngIf="infoService.equipoCargado" target="_blank" href="https://twitter.com/{{ integrante.twitter }}" class="ae-u-bolder au-underline">{{ integrante.twitter }}</a>
       </div>
+      
       
 
       <!--

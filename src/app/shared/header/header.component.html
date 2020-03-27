@@ -17,11 +17,19 @@
     </h1>
     <nav class="rk-navigation">
       <ul class="rk-menu">
-        <!-- 
-        <li class="rk-menu__item">
+        
+
+        <!-- <li class="rk-menu__item">
           <a href="blog.html" class="rk-menu__link">Blog</a>
+        </li> -->
+        <li routerLinkActive="active" class="rk-menu__item">
+          <a routerLink="home" class="rk-menu__link">Inicio</a>
         </li>
-        <li class="rk-menu__item"><a href="#0" class="rk-menu__link">Pages</a>
+        <li routerLinkActive="active" class="rk-menu__item">
+          <a routerLink="about" class="rk-menu__link">Nosotros</a>
+        </li>
+        <li *ngIf="isLogged" class="rk-menu__item">
+          <a href="#0" class="rk-menu__link"> <!-- Nombre de user Logeado --> </a>
           <nav class="rk-menu__sub">
             <ul class="rk-container">
               <li class="rk-menu__item"><a href="about.html" class="rk-menu__link">About</a></li>
@@ -30,12 +38,11 @@
             </ul>
           </nav>
         </li>
-        -->
-        <li routerLinkActive="active" class="rk-menu__item">
-          <a routerLink="home" class="rk-menu__link">Inicio</a>
+        <li routerLinkActive="active" *ngIf="!isLogged" class="rk-menu__item">
+          <a routerLink="login" class="rk-menu__link">Iniciar Sesion</a>
         </li>
-        <li routerLinkActive="active" class="rk-menu__item">
-          <a routerLink="about" class="rk-menu__link">Nosotros</a>
+        <li routerLinkActive="active" *ngIf="!isLogged" class="rk-menu__item">
+          <a routerLink="register" class="rk-menu__link">Registrarse</a>
         </li>
       </ul>
       <div class="rk-search">
